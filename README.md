@@ -7,7 +7,7 @@
 First, install the dependencies:
 
 ```bash
-pnpm install
+yarn install
 ```
 
 then, copy and edit the `.env.example` file
@@ -19,7 +19,7 @@ cp .env.example .env.local
 finally, run the development server:
 
 ```bash
-pnpm dev
+yarn dev
 ```
 
 Open [http://localhost:42069](http://localhost:42049) with your browser to see the result.

@@ -43,7 +43,7 @@ function Providers({ children }: { children: React.ReactNode }) {
       <RainbowKitProvider chains={chains} theme={darkTheme()}>
         <QueryClientProvider client={queryClient}>
           {children}
-          <ReactQueryDevtools initialIsOpen={false} />
+          <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
         </QueryClientProvider>
       </RainbowKitProvider>
     </WagmiConfig>
