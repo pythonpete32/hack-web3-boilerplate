@@ -11,12 +11,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [
-    chain.polygon,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
-      ? [chain.goerli, chain.polygonMumbai]
-      : []),
-  ],
+  [chain.goerli],
   [
     alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
     publicProvider(),
@@ -40,7 +35,11 @@ const queryClient = new QueryClient();
 function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains} theme={darkTheme()}>
+      <RainbowKitProvider
+        showRecentTransactions={true}
+        chains={chains}
+        theme={darkTheme()}
+      >
         <QueryClientProvider client={queryClient}>
           {children}
           <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
